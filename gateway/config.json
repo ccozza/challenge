@@ -1,0 +1,24 @@
+{
+    "services": [
+        {
+            "address": "http://tasks:3070",
+            "routes": [
+                {
+                    "path": "/tasks/create"
+                },
+                {
+                    "path": "/tasks/update"
+                },
+                {
+                    "path": "/tasks/delete"
+                },
+                {
+                    "path": "/tasks/get/page/:page/size/:size"
+                },
+                {
+                    "path": "/tasks/get/:id"
+                }
+            ]
+        }
+    ]
+}

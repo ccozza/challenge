@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  gateway:
+    build: gateway
+    environment:
+      SERVER_PORT: 3050
+    ports:
+      - '3050:3050'
+    links:
+      - db
+    restart: always
+
+  tasks:
+    build: tasks
+    environment:
+      TASKS_PORT: 3070
+    ports:
+      - '3070:3070'
+    links:
+      - gateway
+    restart: always
+
+  db:
+    image: 'mongo'
+    restart: always
+    expose:
+      - 27017
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./data/mongo:/data/db
